@@ -11,7 +11,8 @@ class Utils {
    */
 
   constructor () {
-
+    this._reqStack = [];
+    this._reqLimit = 4;
   }
 
   /**
@@ -42,7 +43,6 @@ class Utils {
 
   preprocessResponse (res, type) {
     let data = res;
-
     if(this.isJSON(res) || type === 'json') {
       data = JSON.parse(res.response);
     }
